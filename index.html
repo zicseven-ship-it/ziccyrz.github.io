@@ -13,59 +13,110 @@
       color: #2c3e50;
     }
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-      letter-spacing: 1.5px;
-    }
-
     /* Navbar */
     nav {
-      background: #2575fc;
+      background: linear-gradient(135deg, #2980b9, #3498db);
+      color: white;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      overflow-x: auto;
+      overflow: hidden;
     }
 
-    /* kiri */
     .menu-icon {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       cursor: pointer;
-      color: white;
       flex-shrink: 0;
     }
 
-    /* kanan - ticker harga */
+    /* Crypto ticker berjalan */
     #crypto-ticker {
-      color: white;
-      font-weight: bold;
-      font-size: 0.85rem;
+      overflow: hidden;
       white-space: nowrap;
+      flex: 1;
+      margin-left: 20px;
     }
 
-    /* Konten */
+    #crypto-ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 25s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Sidebar */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1200;
+      top: 0;
+      left: 0;
+      background-color: #2c3e50;
+      overflow-x: hidden;
+      transition: 0.4s;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      padding: 12px 24px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #f1f1f1;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #34495e;
+    }
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      color: white;
+    }
+
+    /* Hero Section */
+    header {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Main content */
     main {
       padding: 40px 20px;
       text-align: center;
     }
+
     main p {
       max-width: 600px;
       margin: 10px auto;
       line-height: 1.6;
     }
+
     img {
       margin-top: 20px;
       max-width: 300px;
@@ -73,7 +124,7 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* Sosmed */
+    /* Tombol sosial */
     .social-links {
       margin-top: 30px;
     }
@@ -102,25 +153,35 @@
       background: #2c3e50;
       color: #bdc3c7;
       padding: 15px;
-      margin-top: 40px;
-      font-size: 0.9rem;
       text-align: center;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>ZICYRZ CAPITAL</h1>
-  </header>
-
-  <!-- Navbar dengan ticker -->
+  <!-- Navbar -->
   <nav>
-    <span class="menu-icon">&#9776;</span>
+    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
     <div id="crypto-ticker">
-      Loading prices...
+      <span>
+        BTC $500000 | ETH $5000 | BNB $1500 | XRP $1000 | SOL $500 | TON $250 | BGB $100 | ASTR $50 | PEPE $1 | SHIBA $1
+      </span>
     </div>
   </nav>
 
+  <!-- Sidebar Menu -->
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <!-- Hero -->
+  <header>
+    <h1>ZICYRZ CAPITAL</h1>
+    <p>Membangun nilai, memperluas wawasan, dan menciptakan peluang untuk masa depan</p>
+  </header>
+  <!-- Main -->
   <main>
     <p><b>ZICYRZ CAPITAL</b> adalah sebuah individu yang terus belajar menerus agar mencapai cita-cita yang diinginkan.</p>
     <img src="zicyrz gambar 1.jpg" alt="zicyrz">
@@ -132,41 +193,21 @@
     </div>
   </main>
 
-  <p style="text-align:center;">Website ini sedang dalam tahap belajar dan pengembangan 🚀</p>
-
+  <!-- Footer -->
   <footer>
-    <p>© 2025 zicyrz</p>
+    <p>© 2025 ZICYRZ</p>
   </footer>
 
-  <!-- Script ambil harga -->
   <script>
-    async function fetchPrices() {
-      try {
-        let response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,solana,binancecoin,toncoin,bitget-token,astar,pepe,shiba-inu&vs_currencies=usd");
-        let data = await response.json();
-
-        let prices = `
-          BTC: $${data.bitcoin.usd.toLocaleString()} |
-          ETH: $${data.ethereum.usd.toLocaleString()} |
-          XRP: $${data.ripple.usd.toLocaleString()} |
-          SOL: $${data.solana.usd.toLocaleString()} |
-          BNB: $${data.binancecoin.usd.toLocaleString()} |
-          TON: $${data.toncoin.usd.toLocaleString()} |
-          BGB: $${data["bitget-token"].usd.toLocaleString()} |
-          ASTR: $${data.astar.usd.toLocaleString()} |
-          PEPE: $${data.pepe.usd} |
-          SHIB: $${data["shiba-inu"].usd}
-        `;
-
-        document.getElementById("crypto-ticker").innerText = prices;
-      } catch (error) {
-        console.error("Gagal ambil harga:", error);
-        document.getElementById("crypto-ticker").innerText = "Gagal ambil harga";
+    // Sidebar toggle
+    function toggleMenu() {
+      let sidebar = document.getElementById("sidebar");
+      if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0";
+      } else {
+        sidebar.style.width = "250px";
       }
     }
-
-    fetchPrices();
-    setInterval(fetchPrices, 30000);
   </script>
 </body>
 </html>
