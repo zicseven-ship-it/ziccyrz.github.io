@@ -16,6 +16,27 @@
       color: white;
       padding: 20px;
     }
+    nav {
+      background: #27ae60;
+      padding: 10px;
+      position: sticky; /* Biar nempel */
+      top: 0;           /* Posisi paling atas */
+      z-index: 1000;    /* Supaya selalu di depan */
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #f1c40f;
+    }
+    main {
+      padding: 20px;
+      min-height: 1000px; /* Tambahin tinggi biar bisa test scroll */
+    }
     footer {
       background: #2c3e50;
       color: white;
@@ -61,14 +82,20 @@
     <h1>Selamat Datang di Website Saya</h1>
   </header>
 
+  <!-- Navigasi sticky -->
+  <nav>
+    <a href="index.html">Home</a> | 
+    <a href="about.html">About</a> | 
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <main>
     <p>ZICYRZ Adalah sebuah individu yang terus belajar menerus agar mencapai cita-cita yang diinginkan</p>
     <p>Website ini sedang dalam tahap belajar dan pengembangan 🚀</p>
     <img src="zicyrz gambar 1.jpg" style="max-width : 300px; height : auto; border-radius : 10px; ">
 
     <div class="social-links">
-      <a href="https://twitter.com/@Sevenhokage99
-" class="twitter-x" target="_blank">Twitter / X</a>
+      <a href="https://twitter.com/@Sevenhokage99" class="twitter-x" target="_blank">Twitter / X</a>
       <a href="https://instagram.com/@zic.yrz" class="instagram" target="_blank">Instagram</a>
       <a href="https://github.com/zicseven-ship-it" class="github" target="_blank">GitHub</a>
     </div>
