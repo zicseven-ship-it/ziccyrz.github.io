@@ -6,74 +6,93 @@
   <title>zicyrz.co.id</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       text-align: center;
       margin: 0;
       padding: 0;
+      background: #f4f6f8; /* warna background abu soft */
+      color: #2c3e50;
     }
+
+    /* Header dengan gradasi */
     header {
-      background: #2ecc71;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
       color: white;
-      padding: 20px;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    /* Navbar sticky */
     nav {
       background: #27ae60;
-      padding: 10px;
-      position: sticky; /* Biar nempel */
-      top: 0;           /* Posisi paling atas */
-      z-index: 1000;    /* Supaya selalu di depan */
+      padding: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav a {
       color: white;
-      margin: 0 10px;
+      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       transition: 0.3s;
     }
     nav a:hover {
       color: #f1c40f;
     }
+
+    /* Konten */
     main {
-      padding: 20px;
-      min-height: 1000px; /* Tambahin tinggi biar bisa test scroll */
+      padding: 40px 20px;
     }
-    footer {
-      background: #2c3e50;
-      color: white;
-      padding: 10px;
+    main p {
+      max-width: 600px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+    img {
       margin-top: 20px;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
+
+    /* Tombol sosmed */
     .social-links {
-      margin-top: 20px;
+      margin-top: 30px;
     }
     .social-links a {
       display: inline-block;
-      margin: 5px;
-      padding: 10px 15px;
-      border-radius: 8px;
+      margin: 8px;
+      padding: 12px 20px;
+      border-radius: 30px;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
+      transition: transform 0.2s, background 0.3s;
     }
-    /* Warna tombol */
-    .twitter-x {
-      background: #000; /* Hitam */
+    .social-links a:hover {
+      transform: scale(1.05);
     }
-    .twitter-x:hover {
-      background: #333;
-    }
-    .instagram {
-      background: #8a3ab9; /* Ungu khas IG */
-    }
-    .instagram:hover {
-      background: #732d91;
-    }
-    .github {
-      background: #24292e; /* Hitam GitHub */
-    }
-    .github:hover {
-      background: #000;
+    .twitter-x { background: #000; }
+    .twitter-x:hover { background: #333; }
+    .instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+    .instagram:hover { opacity: 0.9; }
+    .github { background: #24292e; }
+    .github:hover { background: #000; }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: #bdc3c7;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -84,15 +103,15 @@
 
   <!-- Navigasi sticky -->
   <nav>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About</a> | 
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
-    <p>ZICYRZ Adalah sebuah individu yang terus belajar menerus agar mencapai cita-cita yang diinginkan</p>
+    <p><b>ZICYRZ</b> adalah sebuah individu yang terus belajar menerus agar mencapai cita-cita yang diinginkan.</p>
     <p>Website ini sedang dalam tahap belajar dan pengembangan 🚀</p>
-    <img src="zicyrz gambar 1.jpg" style="max-width : 300px; height : auto; border-radius : 10px; ">
+    <img src="zicyrz gambar 1.jpg" alt="zicyrz">
 
     <div class="social-links">
       <a href="https://twitter.com/@Sevenhokage99" class="twitter-x" target="_blank">Twitter / X</a>
