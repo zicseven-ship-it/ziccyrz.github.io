@@ -3,106 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>zicyrz.co.id</title>
+  <title>ZICYRZ CAPITAL</title>
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fafafa;
+      background: #f4f6f8;
       color: #2c3e50;
     }
 
+    /* Header */
     header {
-      background: linear-gradient(135deg, #a18cd1, #fbc2eb, #8ec5fc);
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
       color: white;
       padding: 40px 20px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 2px;
+      font-size: 2.2rem;
+      letter-spacing: 1.5px;
     }
 
     /* Navbar */
-    .navbar {
-      background: #a18cd1;
-      padding: 12px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    nav {
+      background: #2575fc;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      overflow-x: auto;
     }
 
-    .menu-toggle {
-      font-size: 26px;
-      color: white;
+    /* kiri */
+    .menu-icon {
+      font-size: 1.6rem;
       cursor: pointer;
-      background: none;
-      border: none;
-    }
-
-    .menu {
-      display: none;
-      flex-direction: column;
-      background: #c084fc;
-      position: absolute;
-      top: 50px;
-      left: 0;
-      width: 100%;
-      text-align: left;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .menu a {
       color: white;
-      padding: 14px;
-      text-decoration: none;
-      display: block;
-      font-weight: 600;
-      transition: 0.3s;
+      flex-shrink: 0;
     }
 
-    .menu a:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .menu.show {
-      display: flex;
+    /* kanan - ticker harga */
+    #crypto-ticker {
+      color: white;
+      font-weight: bold;
+      font-size: 0.85rem;
+      white-space: nowrap;
     }
 
     /* Konten */
     main {
-      padding: 50px 20px;
+      padding: 40px 20px;
       text-align: center;
     }
-
     main p {
       max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.7;
-      color: #444;
+      margin: 10px auto;
+      line-height: 1.6;
     }
-
     img {
-      margin-top: 25px;
+      margin-top: 20px;
       max-width: 300px;
-      border-radius: 14px;
+      border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* Tombol sosmed */
+    /* Sosmed */
     .social-links {
       margin-top: 30px;
     }
-
     .social-links a {
       display: inline-block;
       margin: 8px;
@@ -113,19 +87,13 @@
       font-weight: bold;
       transition: transform 0.2s, background 0.3s;
     }
-
     .social-links a:hover {
       transform: scale(1.05);
     }
-
     .twitter-x { background: #000; }
     .twitter-x:hover { background: #333; }
-
-    .instagram { 
-      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); 
-    }
+    .instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
     .instagram:hover { opacity: 0.9; }
-
     .github { background: #24292e; }
     .github:hover { background: #000; }
 
@@ -134,9 +102,9 @@
       background: #2c3e50;
       color: #bdc3c7;
       padding: 15px;
-      text-align: center;
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 0.9rem;
+      text-align: center;
     }
   </style>
 </head>
@@ -145,22 +113,18 @@
     <h1>ZICYRZ CAPITAL</h1>
   </header>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <button class="menu-toggle">☰</button>
-    <div class="menu" id="menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+  <!-- Navbar dengan ticker -->
+  <nav>
+    <span class="menu-icon">&#9776;</span>
+    <div id="crypto-ticker">
+      Loading prices...
     </div>
-  </div>
+  </nav>
 
-  
   <main>
-    <p><b>ZICYRZ CAPITAL</b> adalah ruang personal branding yang fokus pada teknologi digital dan strategi keuangan modern 🚀</p>
+    <p><b>ZICYRZ CAPITAL</b> adalah sebuah individu yang terus belajar menerus agar mencapai cita-cita yang diinginkan.</p>
     <img src="zicyrz gambar 1.jpg" alt="zicyrz">
 
-
-    
     <div class="social-links">
       <a href="https://twitter.com/@Sevenhokage99" class="twitter-x" target="_blank">Twitter / X</a>
       <a href="https://instagram.com/@zic.yrz" class="instagram" target="_blank">Instagram</a>
@@ -168,17 +132,41 @@
     </div>
   </main>
 
+  <p style="text-align:center;">Website ini sedang dalam tahap belajar dan pengembangan 🚀</p>
+
   <footer>
     <p>© 2025 zicyrz</p>
   </footer>
 
+  <!-- Script ambil harga -->
   <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('menu');
+    async function fetchPrices() {
+      try {
+        let response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,solana,binancecoin,toncoin,bitget-token,astar,pepe,shiba-inu&vs_currencies=usd");
+        let data = await response.json();
 
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('show');
-    });
+        let prices = `
+          BTC: $${data.bitcoin.usd.toLocaleString()} |
+          ETH: $${data.ethereum.usd.toLocaleString()} |
+          XRP: $${data.ripple.usd.toLocaleString()} |
+          SOL: $${data.solana.usd.toLocaleString()} |
+          BNB: $${data.binancecoin.usd.toLocaleString()} |
+          TON: $${data.toncoin.usd.toLocaleString()} |
+          BGB: $${data["bitget-token"].usd.toLocaleString()} |
+          ASTR: $${data.astar.usd.toLocaleString()} |
+          PEPE: $${data.pepe.usd} |
+          SHIB: $${data["shiba-inu"].usd}
+        `;
+
+        document.getElementById("crypto-ticker").innerText = prices;
+      } catch (error) {
+        console.error("Gagal ambil harga:", error);
+        document.getElementById("crypto-ticker").innerText = "Gagal ambil harga";
+      }
+    }
+
+    fetchPrices();
+    setInterval(fetchPrices, 30000);
   </script>
 </body>
 </html>
