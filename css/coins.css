@@ -18,7 +18,7 @@
   top: -50px; /* mulai dari atas layar */
   width: 40px;
   height: 40px;
-  background-image: url("https://cryptologos.cc/logos/bitcoin-btc-logo.png");
+  background-image: url("https://s2.coinmarketcap.com/static/img/coins/128x128/1.png");
   background-size: cover;
   opacity: 0.9;
   animation: fall linear forwards;
