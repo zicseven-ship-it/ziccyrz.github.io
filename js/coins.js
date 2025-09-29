@@ -1,7 +1,7 @@
 // coins.js
 function createCoin() {
   const coin = document.createElement("img");
-  coin.src = "https://cryptologos.cc/logos/bitcoin-btc-logo.png"; // logo BTC
+  coin.src = "https://s2.coinmarketcap.com/static/img/coins/128x128/1.png"; // logo BTC
   coin.className = "falling-coin";
 
   // posisi random
