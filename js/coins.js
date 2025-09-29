@@ -1,28 +1,31 @@
+// js/coins.js
 function createCoin() {
   const coin = document.createElement("img");
   coin.src = "https://s2.coinmarketcap.com/static/img/coins/128x128/1.png"; // logo BTC
-  coin.classList.add("coin");
+  coin.className = "coin";
 
-  // posisi random di layar (horizontal)
+  // posisi horizontal random
   coin.style.left = Math.random() * window.innerWidth + "px";
+
+  // animasi durasi random (biar beda2 kecepatan)
+  coin.style.animationDuration = 3 + Math.random() * 3 + "s";
 
   document.body.appendChild(coin);
 
-  // hapus setelah animasi selesai (10 detik biar gak numpuk)
+  // hapus elemen setelah animasi selesai
   setTimeout(() => {
     coin.remove();
-  }, 10000);
+  }, 6000);
 }
 
-function coinRain() {
-  // bikin 50 coin sekaligus
+// bikin hujan coin tiap 30 detik (50 koin sekali turun)
+setInterval(() => {
   for (let i = 0; i < 50; i++) {
-    setTimeout(createCoin, i * 200); // jeda antar coin biar ga barengan banget
+    setTimeout(createCoin, i * 200); // biar muncul bertahap
   }
+}, 30000);
+
+// jalankan langsung di awal juga
+for (let i = 0; i < 50; i++) {
+  setTimeout(createCoin, i * 200);
 }
-
-// jalankan pertama kali
-coinRain();
-
-// ulangi setiap 30 detik
-setInterval(coinRain, 30000);
